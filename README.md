@@ -1,6 +1,6 @@
 # Study Project on Java with Spring Boot
 
-## This is web application that represent guitar store that I made for a university course I was studying.
+## This is web application that represent Online Store that I made for a university course I was studying.
 
 ---
 
