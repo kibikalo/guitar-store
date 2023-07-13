@@ -1,0 +1,46 @@
+.layout-container {
+    padding: 16px 70px;
+}
+
+.layout-nav {
+    display:         flex;
+    flex-flow:       row nowrap;
+    justify-content: space-between;
+    align-items:     center;
+}
+
+.left-nav-box {
+    display:         flex;
+    flex-flow:       row nowrap;
+    justify-content: space-between;
+    align-items:     center;
+
+    gap:             60px;
+}
+
+.right-nav-box {
+    display:         flex;
+    flex-flow:       row nowrap;
+    justify-content: space-between;
+    align-items:     center;
+
+    gap:             40px;
+}
+
+.auth {
+    display:         flex;
+    flex-flow:       row nowrap;
+    justify-content: space-between;
+    align-items:     center;
+    gap: 20px;
+}
+
+.shopping-cart {
+    padding:          16px 40px 16px 40px;
+
+    display:         flex;
+    flex-flow:       row nowrap;
+    justify-content: space-between;
+    align-items:     center;
+    gap: 16px;
+}

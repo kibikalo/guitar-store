@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+    </head>
+    <body>
+        <div th:fragment="header">
+          <div class="layout-container">
+            <nav class="layout-nav">
+              <div class="left-nav-box">
+                <div>
+                  <img src="/images/icons/nav_logo.svg">
+                  <span class="logo">Shop</span>
+                </div>
+                <div>
+                  <form th:action="@{/products}" method="get">
+                    <input class="link" type="submit" value="Catalog"/>
+                  </form>
+                </div>
+              </div>
+              <div>
+                <div class="right-nav-box">
+                  <div>
+                    <div class="auth" th:if="${!#authentication.isAuthenticated()}">
+                      <div>
+                        <form th:action="@{/register}" method="get">
+                          <input class="link" type="submit" value="Register"/>
+                        </form>
+                      </div>
+
+                      <div>
+                        <form th:action="@{/login}" method="post">
+                          <input class="link" type="submit" value="Log In"/>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="auth" th:if="${#authentication.isAuthenticated()}">
+                      <div>
+                        <form th:action="@{/logout}" method="post">
+                          <input class="link" type="submit" value="Log Out"/>
+                        </form>
+                      </div>
+
+                      <div>
+                        <form>
+                          <button type="submit">
+                            <img src="/images/icons/nav-profile.svg" alt="profile">
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <form>
+                      <div class="shopping-cart">
+                        <div class="cart-img">
+                          <div>
+                            <img src="/images/icons/nav-shopping-cart.svg" alt="shopping-cart">
+                          </div>
+                        </div>
+                        <div>
+                          <input type="submit" value="Shopping Cart"/>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+    </body>
+</html>

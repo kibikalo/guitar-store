@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+      <title>Account</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,
+              initial-scale=1, shrink-to-fit=no, minimal-ui">
+      <link rel="icon" href="/images/icons/nav_logo.svg" type="image/svg">
+
+      <link rel="stylesheet" th:href="@{/css/main-styles.css}">
+      <link rel="stylesheet" th:href="@{/css/header-styles.css}">
+      <link rel="stylesheet" th:href="@{/css/header-markup.css}">
+      <link rel="stylesheet" th:href="@{/css/account-styles.css}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div th:replace="~{header :: header}"></div>
+    </header>
+
+    <section class="account-container">
+        <div class="account-grid">
+            <nav class="account-nav-bar">
+                <button id="information-button">Account Details</button>
+                <button id="update-information-button">Update Details</button>
+                <form th:action="@{/account/user/{id}/delete(id=${user.id})}" method="post">
+                    <button type="submit">Delete Account</button>
+                </form>
+            </nav>
+
+            <div>
+                <div id="information" style="display: none;">
+                    <article class="account-details-grid">
+                        <h1>Account Details</h1>
+                        <div class="account-details-container">
+                            <div class="account-details-container-grid">
+                                <p>First Name: <span th:text="${user.firstName}"></span></p>
+                                <p>Last Name: <span th:text="${user.lastName}"></span></p>
+                                <p>Email: <span th:text="${user.email}"></span></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div id="update-information" style="display: none;">
+                    <article class="account-details-grid">
+                        <h1>Update Details</h1>
+                        <form class="account-details-container" method="post" th:action="@{/account/user/{id}(id=${user.id})}">
+                            <div>
+                                <input type="hidden" th:field="*{id}">
+                            </div>
+                            <div class="account-details-container-grid">
+                                <div>
+                                    <label for="firstName">First Name:</label>
+                                    <input type="text" id="firstName" name="firstName" th:value="${user.firstName}">
+                                </div>
+                                <div>
+                                    <label for="lastName">Last Name:</label>
+                                    <input type="text" id="lastName" name="lastName" th:value="${user.lastName}">
+                                </div>
+                                <div>
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" th:value="${user.email}">
+                                </div>
+                                <div>
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" name="password">
+                                </div>
+                            </div>
+                            <div class="account-details-button">
+                                <button type="submit">Save Changes</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/userAccount.js"></script>
+  </body>
+</html>

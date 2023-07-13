@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1, shrink-to-fit=no, minimal-ui">
+        <link rel="icon" href="/images/icons/nav_logo.svg" type="image/svg">
+
+        <link rel="stylesheet" th:href="@{/css/main-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-markup.css}">
+        <link rel="stylesheet" th:href="@{/css/form-styles.css}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div th:replace="~{header :: header}"></div>
+        </header>
+        <div class="container">
+            <div class="form-container">
+                <form th:action="@{/register}" method="post" class="form">
+                    <h1>Sign Up</h1>
+                    <div class="fields-grid">
+                        <div>
+                            <input type="text" id="firstName" class="field-control" name="firstName" placeholder="First Name" required/>
+                        </div>
+                        <div>
+                            <input type="text" id="lastName" class="field-control" name="lastName" placeholder="Last Name" required/>
+                        </div>
+                        <div>
+                            <input type="email" id="email" class="field-control" name="email" placeholder="Email" required/>
+                        </div>
+                        <div>
+                            <input type="password" id="password" class="field-control" name="password" placeholder="Password" required minlength="4" maxlength="64"/>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="form-button" type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

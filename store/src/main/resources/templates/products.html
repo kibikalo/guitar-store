@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1, shrink-to-fit=no, minimal-ui">
+        <title>Guitar Shop</title>
+        <link rel="icon" href="/images/icons/nav_logo.svg" type="image/svg">
+
+        <link rel="stylesheet" th:href="@{/css/main-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/products-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-markup.css}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div th:fragment="header">
+                <div class="layout-container">
+                    <nav class="layout-nav">
+                        <div class="left-nav-box">
+                            <div>
+                                <img src="/images/icons/nav_logo.svg">
+                                <span class="logo">Shop</span>
+                            </div>
+                            <div>
+                                <form th:action="@{/products}" method="get">
+                                    <input class="link" type="submit" value="Catalog"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="right-nav-box">
+                                <div>
+                                    <div class="auth" th:if="${!#authentication.isAuthenticated()}">
+                                        <div>
+                                            <form th:action="@{/register}" method="get">
+                                                <input class="link" type="submit" value="Register"/>
+                                            </form>
+                                        </div>
+
+                                        <div>
+                                            <form th:action="@{/login}" method="post">
+                                                <input class="link" type="submit" value="Log In"/>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="auth" th:if="${#authentication.isAuthenticated()}">
+                                        <div>
+                                            <form th:action="@{/logout}" method="post">
+                                                <input class="link" type="submit" value="Log Out"/>
+                                            </form>
+                                        </div>
+
+                                        <div>
+                                            <form th:action="@{/account/user/{id}(id=${#authentication.principal.id})}" method="get">
+                                                <button type="submit">
+                                                    <img src="/images/icons/nav-profile.svg" alt="profile">
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <form>
+                                        <div class="shopping-cart">
+                                            <div class="cart-img">
+                                                <div>
+                                                    <img src="/images/icons/nav-shopping-cart.svg" alt="shopping-cart">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <input type="submit" value="Shopping Cart"/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="catalog">
+            <h1 class="section-header">Gibson</h1>
+
+            <section class="product-section">
+                <div th:each="product : ${products}">
+                    <article class="product-card">
+                        <div class="product-card-image">
+                            <img th:if="${product.imagePath}" th:src="@{${product.imagePath}}" alt="photo">
+                        </div>
+                        <div class="product-information">
+                            <div class="information-box">
+                                <div>
+                                    <span th:text="${product.brand}"></span>
+                                </div>
+                                <div>
+                                    <span th:text="'id: ' + ${product.id}"></span>
+                                </div>
+                            </div>
+                            <div class="product-name">
+                                <p th:text="${product.name}"></p>
+                            </div>
+                            <div class="price-box">
+                                <div class="price">
+                                    <span th:text="'$' + ${product.priceUsd}"></span>
+                                </div>
+                                <div>
+                                    <img src="/images/icons/shopping-cart.svg" alt="button">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

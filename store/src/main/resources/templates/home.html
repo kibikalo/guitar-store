@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1, shrink-to-fit=no, minimal-ui">
+        <link rel="icon" href="/images/icons/nav_logo.svg" type="image/svg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Home Page</h1>
+        <a th:href="@{/register}">
+            <button>Sing Up</button>
+        </a>
+        <a th:href="@{/login}">
+            <button>Log In</button>
+        </a>
+        <a th:href="@{/logout}">
+            <button>Log Out</button>
+        </a>
+    </body>
+</html>

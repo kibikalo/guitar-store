@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Success Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1, shrink-to-fit=no, minimal-ui">
+        <link rel="icon" href="/images/icons/nav_logo.svg" type="image/svg">
+
+        <link rel="stylesheet" th:href="@{/css/main-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-styles.css}">
+        <link rel="stylesheet" th:href="@{/css/header-markup.css}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div th:replace="~{header :: header}"></div>
+        </header>
+          <h2>
+            You have signed up successfully!
+          </h2>
+          <a th:href="@{/login}">
+            Click here to Login
+          </a>
+    </body>
+</html>
