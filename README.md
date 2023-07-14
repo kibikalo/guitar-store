@@ -10,8 +10,8 @@
 ---
 
 ### Project tech-stack
-* ***Spring Security*** > authentication and authorization with 
-* ***Thymeleaf*** > that dynamically generates product cards
+* ***Spring Security*** > authentication and authorization
+* ***Thymeleaf*** > dynamically generates product cards
 * ***Lombok*** > reduces the amount of boilerplate code
 * ***PostgreSQL*** > object-relational database
 
